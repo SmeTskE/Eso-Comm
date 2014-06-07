@@ -8,12 +8,9 @@
     <string name="btn_save">Save</string>
 
     <!-- Setup User Screen -->
-    <string name="sus_title">User Setup</string>
-    <string name="sus_intro">Please gave your ingame information. Your account name is needed so people can contact you ingame. The gameserver is needed to organize the data. This data can be changed afterwards in the settings screen.</string>
-    <string name="sus_username">ESO username</string>
-    <string name="sus_server">ESO gameserver</string>
-    <string-array name="sus_servers_list">
-        <item>American Server</item>
-        <item>European Server</item>
-    </string-array>
+    <string name="us_title">User Setup</string>
+    <string name="us_intro">Please gave your ingame information. Your account name is needed so people can contact you ingame. The gameserver is needed to organize the data. This data can be changed afterwards in the settings screen.</string>
+    <string name="us_username">ESO username</string>
+    <string name="us_server">ESO gameserver</string>
+
 </resources>
