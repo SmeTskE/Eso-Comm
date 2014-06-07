@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- General -->
     <string name="app_name">Eso Comm</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="btn_save">Save</string>
 
+    <!-- Setup User Screen -->
+    <string name="sus_title">User Setup</string>
+    <string name="sus_intro">Please gave your ingame information. Your account name is needed so people can contact you ingame. The gameserver is needed to organize the data. This data can be changed afterwards in the settings screen.</string>
+    <string name="sus_username">ESO username</string>
+    <string name="sus_server">ESO gameserver</string>
+    <string-array name="sus_servers_list">
+        <item>American Server</item>
+        <item>European Server</item>
+    </string-array>
 </resources>
