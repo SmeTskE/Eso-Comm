@@ -1,9 +1,14 @@
 package be.stece.esocomm.droidapp.activities;
 
 import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import be.stece.esocomm.droidapp.fragments.UserSetupFragment;
+import be.stece.esocomm.droidapp.managers.SettingsManager;
 
 /**
  * Created by Stece on 7/06/2014.
@@ -14,6 +19,11 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        if (SettingsManager.usernameFromSettings(this).isEmpty()){
+            // Start User setup
+        }
+
+
     }
 
 

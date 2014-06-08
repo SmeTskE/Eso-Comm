@@ -26,11 +26,11 @@ public class SettingsManager {
 
     public static EsoServerEnum esoServerFromSettings (Context context){
         SharedPreferences prefs = context.getSharedPreferences(PREF_FILE, Context.MODE_PRIVATE);
-        return EsoServerEnum.valueOf(prefs.getString(KEY_ESO_SERVER, ""));
+        return EsoServerEnum.valueOf(prefs.getString(KEY_ESO_SERVER, EsoServerEnum.AMERICAN.name()));
     }
 
     public static void storeEsoServerSetting(Context context, EsoServerEnum esoServer){
         SharedPreferences prefs = context.getSharedPreferences(PREF_FILE, Context.MODE_PRIVATE);
-        prefs.edit().putString(KEY_ESO_SERVER, esoServer.toString()).commit();
+        prefs.edit().putString(KEY_ESO_SERVER, esoServer.name()).commit();
     }
 }

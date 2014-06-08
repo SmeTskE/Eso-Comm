@@ -2,6 +2,7 @@ package be.stece.esocomm.droidapp.fragments;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,18 +26,24 @@ public class UserSetupFragment extends Fragment implements View.OnClickListener 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.settings_screen, container, false);
+        View view = inflater.inflate(R.layout.setup_screen, container, false);
+
+        mUsernameEditText = (EditText) view.findViewById(R.id.us_username_edittext);
+
+        mEsoServerSpinner = (Spinner) view.findViewById(R.id.us_server_spinner);
+        mEsoServerSpinner.setAdapter(new ArrayAdapter<EsoServerEnum>(view.getContext(), android.R.layout.simple_spinner_item, EsoServerEnum.values()));
+
+        mSaveButton = (Button) view.findViewById(R.id.us_save_button);
+        mSaveButton.setOnClickListener(this);
+
+        return view;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mUsernameEditText = (EditText) getActivity().findViewById(R.id.us_username_edittext);
-        mEsoServerSpinner = (Spinner) getActivity().findViewById(R.id.us_server_spinner);
-        mSaveButton = (Button) getActivity().findViewById(R.id.us_save_button);
 
-        mEsoServerSpinner.setAdapter(new ArrayAdapter<EsoServerEnum>(getActivity(), android.R.layout.simple_spinner_item, EsoServerEnum.values()));
     }
 
     @Override
