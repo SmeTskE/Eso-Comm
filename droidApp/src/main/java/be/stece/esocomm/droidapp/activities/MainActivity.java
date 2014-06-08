@@ -1,8 +1,6 @@
 package be.stece.esocomm.droidapp.activities;
 
 import android.app.Activity;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -12,17 +10,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
-
-import be.stece.esocomm.droidapp.fragments.UserSetupFragment;
 import be.stece.esocomm.droidapp.managers.SettingsManager;
+import be.stece.esocomm.droidapp.models.DrawerMenuEnum;
 
 /**
  * Created by Stece on 7/06/2014.
  */
 public class MainActivity extends Activity {
 
-    String[] menutitles;
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
@@ -32,18 +27,14 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         if (SettingsManager.usernameFromSettings(this).isEmpty()){
-            // Start User setup
+            // Start User setup, use start Activity for Result?
         }
-
-        menutitles = getResources().getStringArray(R.array.titles);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.slider_list);
 
-        menutitles  = getResources().getStringArray(R.array.titles);
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, menutitles);
+        ArrayAdapter<DrawerMenuEnum> adapter = new ArrayAdapter<DrawerMenuEnum>(this,
+                android.R.layout.simple_list_item_1, DrawerMenuEnum.values());
         mDrawerList.setAdapter(adapter);
 
         getActionBar().setDisplayHomeAsUpEnabled(true);
@@ -72,10 +63,19 @@ public class MainActivity extends Activity {
         }
     }
 
+    private void updateDisplay(DrawerMenuEnum screen){
+        switch (screen){
+            case PUBLISH_GUILD_SCREEN:
+                //show publish guild screen
+            case SEARCH_GUILDS_SCREEN:
+                //show search guild screen
+            case SETTINGS_SCREEN:
+                //show settings screen
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
