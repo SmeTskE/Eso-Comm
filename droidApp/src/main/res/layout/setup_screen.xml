@@ -1,60 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?><!-- Layout of the screen for initial setup of the user -->
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Layout of the screen for initial setup of the user -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    style="@style/default_fill_size">
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        style="@style/default_fill_size"
         android:layout_alignParentTop="true"
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:gravity="center"
-            android:text="@string/us_title"
-            android:textAlignment="center"
-            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
-            android:textStyle="bold" />
+            style="@style/default_title"
+            android:text="@string/us_title" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/default_component_size"
             android:layout_marginBottom="20dp"
             android:text="@string/us_intro" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:text="@string/us_username"
-            android:textStyle="bold" />
+            style="@style/default_field_label"
+            android:text="@string/us_username" />
 
         <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            style="@style/default_field_input"
             android:id="@+id/us_username_edittext"
             />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:text="@string/us_server"
-            android:textStyle="bold" />
+            style="@style/default_field_label"
+            android:text="@string/us_server" />
 
         <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/default_field_input"
             android:drawSelectorOnTop="true"
             android:id="@+id/us_server_spinner"/>
     </LinearLayout>
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/default_component_size"
         android:layout_alignParentBottom="true"
         android:text="@string/btn_save"
         android:id="@+id/us_save_button"/>

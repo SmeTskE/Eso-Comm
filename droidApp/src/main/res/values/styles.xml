@@ -5,4 +5,27 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <!-- Some default styles -->
+    <style name="default_fill_size">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    <style name="default_component_size">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="default_title" parent="default_component_size">
+        <item name="android:textAppearance">@android:style/TextAppearance.DeviceDefault.Large</item>
+        <item name="android:layout_marginBottom">20dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="default_field_label" parent="default_component_size">
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginBottom">5dp</item>
+    </style>
+    <style name="default_field_input" parent="default_component_size">
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
 </resources>
