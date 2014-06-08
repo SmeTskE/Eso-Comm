@@ -40,17 +40,13 @@ public class UserSetupFragment extends Fragment implements View.OnClickListener 
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-
-    }
-
-    @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.us_save_button:
                 saveUserSettings();
+                break;
+            default:
+                break;
         }
     }
 

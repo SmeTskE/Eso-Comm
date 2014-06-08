@@ -4,6 +4,7 @@ package be.stece.esocomm.droidapp.models;
  * Created by Stece on 8/06/2014.
  */
 public enum DrawerMenuEnum {
+    HOME_SCREEN("Home"),
     SEARCH_GUILDS_SCREEN("Search Guild"),
     PUBLISH_GUILD_SCREEN("Publish Guild"),
     SETTINGS_SCREEN("Settings");

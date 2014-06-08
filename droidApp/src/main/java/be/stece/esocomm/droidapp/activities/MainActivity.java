@@ -1,22 +1,31 @@
 package be.stece.esocomm.droidapp.activities;
 
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import be.stece.esocomm.droidapp.fragments.HomeFragment;
+import be.stece.esocomm.droidapp.fragments.PublishGuildFragment;
+import be.stece.esocomm.droidapp.fragments.SearchGuildsFragment;
+import be.stece.esocomm.droidapp.fragments.SettingsFragment;
 import be.stece.esocomm.droidapp.managers.SettingsManager;
 import be.stece.esocomm.droidapp.models.DrawerMenuEnum;
 
 /**
  * Created by Stece on 7/06/2014.
  */
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements AdapterView.OnItemClickListener{
 
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
@@ -36,6 +45,7 @@ public class MainActivity extends Activity {
         ArrayAdapter<DrawerMenuEnum> adapter = new ArrayAdapter<DrawerMenuEnum>(this,
                 android.R.layout.simple_list_item_1, DrawerMenuEnum.values());
         mDrawerList.setAdapter(adapter);
+        mDrawerList.setOnItemClickListener(this);
 
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
@@ -59,18 +69,50 @@ public class MainActivity extends Activity {
 
         if (savedInstanceState == null) {
             // on first time display view for first nav item
-          //  updateDisplay(0);
+            updateDisplay(DrawerMenuEnum.HOME_SCREEN);
         }
     }
 
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        DrawerMenuEnum selectedFromList =(DrawerMenuEnum) (mDrawerList.getItemAtPosition(position));
+        updateDisplay(selectedFromList);
+    }
+
+    /**
+     * Method to show a specific Fragment
+     * @Author: Stece
+     * @Date: 8/06/2014
+     * @param screen
+     */
     private void updateDisplay(DrawerMenuEnum screen){
+        Fragment fragment = null;
         switch (screen){
+            case HOME_SCREEN:
+                fragment = new HomeFragment();
+                break;
             case PUBLISH_GUILD_SCREEN:
-                //show publish guild screen
+                fragment = new PublishGuildFragment();
+                break;
             case SEARCH_GUILDS_SCREEN:
-                //show search guild screen
+                fragment = new SearchGuildsFragment();
+                break;
             case SETTINGS_SCREEN:
-                //show settings screen
+                fragment = new SettingsFragment();
+                break;
+            default:
+                break;
+        }
+
+        if (fragment != null) {
+            FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.frame_container, fragment).commit();
+            // update selected item and title, then close the drawer
+            setTitle(screen.toString());
+            mDrawerLayout.closeDrawer(mDrawerList);
+        } else {
+            // error in creating fragment
+            Log.e("MainActivity", "Error in creating fragment");
         }
     }
 
