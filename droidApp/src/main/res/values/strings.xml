@@ -13,4 +13,10 @@
     <string name="us_username">ESO username</string>
     <string name="us_server">ESO gameserver</string>
 
+
+    <string-array name="titles">
+        <item>Facebook</item>
+        <item>Google-Plus</item>
+        <item>TutorialsBuzz</item>
+    </string-array>
 </resources>
