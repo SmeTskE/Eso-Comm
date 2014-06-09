@@ -7,4 +7,9 @@ public class Guild {
 
     private long id;
     private String name;
+    private String description;
+    private GuildTypesEnum guildTypes[];
+    private String recruiters[];
+
+    
 }
