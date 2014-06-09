@@ -3,6 +3,7 @@ package be.stece.esocomm.droidapp.activities;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -30,14 +31,12 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
+    private static final int REQUEST_USERSETUP = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if (SettingsManager.usernameFromSettings(this).isEmpty()){
-            // Start User setup, use start Activity for Result?
-        }
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.slider_list);
@@ -69,6 +68,24 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
 
         if (savedInstanceState == null) {
             // on first time display view for first nav item
+            updateDisplay(DrawerMenuEnum.HOME_SCREEN);
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (SettingsManager.usernameFromSettings(this).isEmpty()){
+            Intent intent = new Intent(this, UserSetupActivity.class);
+            startActivityForResult(intent, REQUEST_USERSETUP);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_USERSETUP && resultCode == Activity.RESULT_OK){
             updateDisplay(DrawerMenuEnum.HOME_SCREEN);
         }
     }
@@ -117,24 +134,12 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // toggle nav drawer on selecting action bar app icon/title
         if (mDrawerToggle.onOptionsItemSelected(item)) {
             return true;
-        }
-        // Handle action bar actions click
-        switch (item.getItemId()) {
-            case R.id.action_settings:
-            return true;
-            default :
-                return super.onOptionsItemSelected(item);
+        }else{
+            return false;
         }
     }
 
@@ -145,7 +150,6 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
     public boolean onPrepareOptionsMenu(Menu menu) {
         // if nav drawer is opened, hide the action items
         boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-        menu.findItem(R.id.action_settings).setVisible(!drawerOpen);
         return super.onPrepareOptionsMenu(menu);
     }
 

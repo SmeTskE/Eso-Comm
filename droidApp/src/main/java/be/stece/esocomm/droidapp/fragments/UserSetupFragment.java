@@ -1,6 +1,8 @@
 package be.stece.esocomm.droidapp.fragments;
 
+import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import be.stece.esocomm.droidapp.activities.MainActivity;
 import be.stece.esocomm.droidapp.activities.R;
 import be.stece.esocomm.droidapp.managers.SettingsManager;
 import be.stece.esocomm.droidapp.models.EsoServerEnum;
@@ -51,7 +54,19 @@ public class UserSetupFragment extends Fragment implements View.OnClickListener 
     }
 
     private void saveUserSettings(){
-        SettingsManager.storeEsoServerSetting(getActivity(), (EsoServerEnum) mEsoServerSpinner.getSelectedItem()); // => Possible not the correct way
-        SettingsManager.storeUsernameSetting(getActivity(), mUsernameEditText.getText().toString());
+
+        if (mUsernameEditText.getText().toString().trim().equalsIgnoreCase("")){
+            mUsernameEditText.setError("This field can not be blank");
+        }else{
+            SettingsManager.storeEsoServerSetting(getActivity(), (EsoServerEnum) mEsoServerSpinner.getSelectedItem()); // => Possible not the correct way
+            SettingsManager.storeUsernameSetting(getActivity(), mUsernameEditText.getText().toString());
+
+            Intent resultIntent = new Intent();
+            getActivity().setResult(Activity.RESULT_OK, resultIntent);
+            getActivity().finish();
+        }
+
+
+
     }
 }

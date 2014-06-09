@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" style="@style/default_fill_size">
-
-    <TextView
-        style="@style/default_title"
-        android:text="@string/hs_welcome"
-        android:id="@+id/hs_welcome"/>
-
+    <FrameLayout
+        android:id="@+id/frame_container"
+        style="@style/default_fill_size" />
 </LinearLayout>

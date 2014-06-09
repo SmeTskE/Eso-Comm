@@ -3,9 +3,8 @@
 
     <!-- General -->
     <string name="app_name">Eso Comm</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
     <string name="btn_save">Save</string>
+    <string name="activity_usersetup">User Setup</string>
 
     <!-- Setup User Screen -->
     <string name="us_title">User Setup</string>
@@ -13,10 +12,6 @@
     <string name="us_username">ESO username</string>
     <string name="us_server">ESO gameserver</string>
 
-
-    <string-array name="titles">
-        <item>Facebook</item>
-        <item>Google-Plus</item>
-        <item>TutorialsBuzz</item>
-    </string-array>
+    <!-- Home Screen -->
+    <string name="hs_welcome">Welcome %1$s</string>
 </resources>

@@ -4,7 +4,7 @@ package be.stece.esocomm.droidapp.models;
  * Created by Stece on 7/06/2014.
  */
 public enum EsoServerEnum {
-    AMERICAN("American Server"),
+    NORTH_AMERICAN("North American Server"),
     EUROPEAN("European Server");
 
     private final String value;
