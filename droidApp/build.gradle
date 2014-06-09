@@ -22,11 +22,11 @@ android {
 
     productFlavors {
         normal {
-
+            packageName "be.stece.esocomm.droidapp"
         }
 
         admin {
-
+            packageName "be.stece.esocomm.droidapp.admin"
         }
     }
 }
