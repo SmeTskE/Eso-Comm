@@ -9,7 +9,8 @@ public enum GuildTypesEnum{
     PVP("PVP"),
     PVE("PVE"),
     DUNGEONS("Dungeons"),
-    ROLEPLAYING("Role-Playing");
+    ROLEPLAYING("Role-Playing"),
+    REGIONAL("Region"); // TODO: how to handle regions, for example guild for Belgian players?
 
     private final String value;
 
