@@ -15,6 +15,9 @@ public class NewsBean {
         this.body = body;
     }
 
+    public NewsBean() {
+    }
+
     public long getId() {
         return id;
     }
