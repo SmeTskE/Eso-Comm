@@ -17,6 +17,12 @@
         style="@style/default_field_label"
         android:text="@string/hs_news_label"/>
 
+    <Button
+        style="@style/default_component_size"
+        android:text="@string/hs_admin_news"
+        android:visibility="gone"
+        android:id="@+id/hs_admin_button"/>
+
     <ScrollView
         style="@style/default_fill_size">
        <ListView
