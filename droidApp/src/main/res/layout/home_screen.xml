@@ -8,4 +8,19 @@
         android:text="@string/hs_welcome"
         android:id="@+id/hs_welcome"/>
 
+    <TextView
+        style="@style/default_component_size"
+        android:text="@string/hs_intro"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        style="@style/default_field_label"
+        android:text="@string/hs_news_label"/>
+
+    <ScrollView
+        style="@style/default_fill_size">
+       <ListView
+           style="@style/default_fill_size"
+           android:id="@+id/hs_news_list"/>
+    </ScrollView>
 </LinearLayout>

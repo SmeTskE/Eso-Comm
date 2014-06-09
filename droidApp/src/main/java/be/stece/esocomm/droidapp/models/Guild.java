@@ -11,5 +11,5 @@ public class Guild {
     private GuildTypesEnum guildTypes[];
     private String recruiters[];
 
-    
+
 }

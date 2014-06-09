@@ -14,4 +14,6 @@
 
     <!-- Home Screen -->
     <string name="hs_welcome">Welcome %1$s</string>
+    <string name="hs_intro">Welcome to 'ESO Comm'. This is a free 'Elder Scrolls Online' community. With  this app you can publish your guild or find the guild you are looking for. Being it a trading guild or crafting guild. Also sell/buy your precious items on a larger store then a 500 guild store.</string>
+    <string name="hs_news_label">News</string>
 </resources>
