@@ -3,4 +3,5 @@
 
     <!-- General -->
     <string name="app_name">Eso Comm Admin</string>
+    <string name="activity_newsadmin">News Admin</string>
 </resources>
