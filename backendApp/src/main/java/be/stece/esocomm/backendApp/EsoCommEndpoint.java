@@ -10,6 +10,8 @@ import com.google.appengine.api.datastore.FetchOptions;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.Transaction;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,5 +38,23 @@ public class EsoCommEndpoint {
         }
 
         return newsBeans;
+    }
+
+    @ApiMethod(name = "storeNewsItem")
+    public void storeTask(NewsBean newsBeanBean) {
+        DatastoreService datastoreService = DatastoreServiceFactory.getDatastoreService();
+        Transaction txn = datastoreService.beginTransaction();
+        try {
+            Key taskBeanParentKey = KeyFactory.createKey("NewsBeanParent", KEY_NAME);
+            Entity taskEntity = new Entity("NewsBean", newsBeanBean.getId(), taskBeanParentKey);
+            taskEntity.setProperty("title", newsBeanBean.getTitle());
+            taskEntity.setProperty("body", newsBeanBean.getBody());
+            datastoreService.put(taskEntity);
+            txn.commit();
+        } finally {
+            if (txn.isActive()) {
+                txn.rollback();
+            }
+        }
     }
 }
