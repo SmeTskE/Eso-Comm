@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/default_fill_size">
+
+    <LinearLayout
+        style="@style/default_fill_size"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/default_title"
+            android:text="@string/aen_add_news_title" />
+
+
+        <TextView
+            style="@style/default_field_label"
+            android:text="@string/aen_title_label" />
+
+        <EditText
+            android:id="@+id/aen_title_edittext"
+            style="@style/default_field_input" />
+
+        <TextView
+            style="@style/default_field_label"
+            android:text="@string/aen_body_label" />
+
+        <EditText
+            android:id="@+id/aen_body_edittext"
+            style="@style/default_fill_size"
+            android:inputType="textMultiLine"
+            android:gravity="top"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/aen_save_button"
+        style="@style/default_component_size"
+        android:layout_alignParentBottom="true"
+        android:text="@string/btn_save" />
+</RelativeLayout>

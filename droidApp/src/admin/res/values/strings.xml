@@ -4,4 +4,12 @@
     <!-- General -->
     <string name="app_name">Eso Comm Admin</string>
     <string name="activity_newsadmin">News Admin</string>
+    <string name="activity_aen">Add/Edit News Admin</string>
+    <string name="action_add_news">Add news item</string>
+
+    <!-- Add Edit News screen -->
+    <string name="aen_add_news_title">Add news item</string>
+    <string name="aen_edit_news_item">Edit news item</string>
+    <string name="aen_title_label">News Title</string>
+    <string name="aen_body_label">News Body</string>
 </resources>

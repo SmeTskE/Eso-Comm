@@ -11,6 +11,7 @@
         android:theme="@style/AppTheme" >
 
         <activity android:name=".AdminNewsActivity" android:label="@string/activity_newsadmin" />
+        <activity android:name=".AdminNewsItemActivity" android:label="@string/activity_aen" />
     </application>
 
 </manifest>
