@@ -8,7 +8,7 @@ import be.stece.esocomm.droidapp.models.NewsMessage;
  */
 public interface NewsBag {
 
-    void storeNewsItem(NewsMessage newsItem);
+    void pushToRemote(NewsMessage newsItem);
 
-    List<NewsMessage> getNewsItems();
+    List<NewsMessage> pullFromRemote();
 }
