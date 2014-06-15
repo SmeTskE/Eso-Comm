@@ -20,7 +20,10 @@ to load with the following items)
 - Extras
     - Google Play Services (Rev. 17)
     - Google Repository (Rev. 8)
- 
 
-Contributing
-------------
+
+Import Procedure
+-----------------
+
+1) Open the project in Android Studio
+2) In Android studio go to tools => Google Cloud Tools => Install Client Libraries
