@@ -1,15 +1,27 @@
 package be.stece.esocomm.backendApp;
 
+
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  * Created by Stece on 9/06/2014.
  */
-public class NewsBean {
 
-    private long id;
+@Entity
+public class NewsBean implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private Long id;
     private String title;
     private String body;
 
-    public NewsBean(long id, String title, String body) {
+    public NewsBean(Long id, String title, String body) {
         this.id = id;
         this.title = title;
         this.body = body;
@@ -22,7 +34,7 @@ public class NewsBean {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

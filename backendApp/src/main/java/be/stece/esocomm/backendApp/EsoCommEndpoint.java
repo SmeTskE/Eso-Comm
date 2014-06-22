@@ -15,6 +15,8 @@ import com.google.appengine.api.datastore.Transaction;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+
 /** An endpoint class we are exposing */
 @Api(name = "esoCommBackendApi", version = "v1", namespace = @ApiNamespace(ownerDomain = "backendApp.esocomm.stece.be", ownerName = "backendApp.esocomm.stece.be", packagePath=""))
 public class EsoCommEndpoint {
@@ -31,7 +33,7 @@ public class EsoCommEndpoint {
         ArrayList<NewsBean> newsBeans = new ArrayList<NewsBean>();
         for (Entity result : results) {
             NewsBean newsBean = new NewsBean();
-            newsBean.setId(result.getKey().getId());
+           // newsBean.setId(result.getKey().getId());
             newsBean.setTitle(result.getProperty("title").toString());
             newsBean.setBody(result.getProperty("body").toString());
             newsBeans.add(newsBean);
@@ -41,20 +43,33 @@ public class EsoCommEndpoint {
     }
 
     @ApiMethod(name = "storeNewsItem")
-    public void storeTask(NewsBean newsBeanBean) {
-        DatastoreService datastoreService = DatastoreServiceFactory.getDatastoreService();
+    public void storeTask(NewsBean newsBean){
+       /* DatastoreService datastoreService = DatastoreServiceFactory.getDatastoreService();
         Transaction txn = datastoreService.beginTransaction();
         try {
             Key taskBeanParentKey = KeyFactory.createKey("NewsBeanParent", KEY_NAME);
-            Entity taskEntity = new Entity("NewsBean", newsBeanBean.getId(), taskBeanParentKey);
-            taskEntity.setProperty("title", newsBeanBean.getTitle());
-            taskEntity.setProperty("body", newsBeanBean.getBody());
+            Entity taskEntity = new Entity("NewsBean", newsBean.getId(), taskBeanParentKey);
+            taskEntity.setProperty("title", newsBean.getTitle());
+            taskEntity.setProperty("body", newsBean.getBody());
             datastoreService.put(taskEntity);
             txn.commit();
         } finally {
             if (txn.isActive()) {
                 txn.rollback();
             }
+        }*/
+
+
+
+        EntityManager mgr = getEntityManager();
+        try {
+            mgr.persist(newsBean);
+        } finally {
+            mgr.close();
         }
+    }
+
+    private static EntityManager getEntityManager() {
+        return MyEntityManagerFactory.get().createEntityManager();
     }
 }
