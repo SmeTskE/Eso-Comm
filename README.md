@@ -25,5 +25,5 @@ to load with the following items)
 Import Procedure
 -----------------
 
-1) Open the project in Android Studio
-2) In Android studio go to tools => Google Cloud Tools => Install Client Libraries
+1. Open the project in Android Studio
+2. In Android studio go to tools => Google Cloud Tools => Install Client Libraries
