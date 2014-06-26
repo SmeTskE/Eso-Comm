@@ -26,4 +26,7 @@ Import Procedure
 -----------------
 
 1. Open the project in Android Studio
-2. In Android studio go to tools => Google Cloud Tools => Install Client Libraries
+2. In Android Studio
+  * Tools 
+  * Google Cloud Tools 
+  * Install Client Libraries
